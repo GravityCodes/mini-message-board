@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Global Message Board</h1>
+  
+  <div class="message-wrapper">
+    <% messages.map( (message, index) => { %>
+      <div class="message">
+        <p class="user-message"><%= message.text %></p>
+        <div class="message-detail">
+          <p class="user-name"><%= message.user %></p>
+          <p class="date-added" ><%= message.added%></p>
+          <a href=<%= `/message/${index}` %> class="message-detail-btn">Details</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+  <div class="button-wrapper">
+    <a href="/new">Add new message</a>
+  </div>
+  
+</body>
+</html>
