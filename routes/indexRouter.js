@@ -1,3 +1,5 @@
+const {format} = require('date-fns');
+
 const { Router } = require('express');
 const indexRouter = Router();
 
@@ -5,12 +7,12 @@ const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date()
+    added: format(new Date(), "MMMM dd yyyy" )
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date()
+    added: format(new Date(), "MMMM dd yyyy" )
   }
 ];
 
@@ -27,7 +29,7 @@ indexRouter.post("/new", (req, res) => {
   let messageText = req.body.message;
   let messageUser = req.body.name;
 
-  messages.push({text: messageText, user: messageUser, added: new Date()});
+  messages.push({text: messageText, user: messageUser, added: format(new Date(), "MMMM dd yyyy" )});
 
   res.redirect("/");
 });
